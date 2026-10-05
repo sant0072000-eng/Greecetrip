@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Greece Trip Handbook</title>
+<link rel="stylesheet" href="trip-weather.css">
+<script src="trip-weather.js" defer></script>
+<style>
+:root{--bg:#f3f6f8;--card:#fff;--ink:#12263a;--mute:#5d7184;--line:#d9e2e9;--sea:#0b6fa4;--bike:#b4521c;--ok:#2f7d4f;--warn:#a06a00;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1722;--card:#13232f;--ink:#e6eef4;--mute:#8da2b3;--line:#233745;--sea:#4db3e6;--bike:#f08a4b;--ok:#5cc489;--warn:#e3b04b}}
+:root[data-theme="dark"]{--bg:#0c1722;--card:#13232f;--ink:#e6eef4;--mute:#8da2b3;--line:#233745;--sea:#4db3e6;--bike:#f08a4b;--ok:#5cc489;--warn:#e3b04b}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Avenir Next","Segoe UI",system-ui,sans-serif;padding-bottom:84px}
+main{max-width:640px;margin:0 auto;padding:16px}
+h1{font-size:26px;margin:4px 0 2px;line-height:1.2}h2{font-size:20px;margin:0 0 4px}h3{font-size:15px;margin:18px 0 8px;color:var(--mute);font-weight:600}
+.sub{color:var(--mute);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0}
+.hero{border-left:6px solid var(--sea)}.hero.bike{border-left-color:var(--bike)}
+.big{font-size:34px;font-weight:700;line-height:1}.bike .big{color:var(--bike)}
+.row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:1px solid var(--line)}.row:first-child{border-top:0}
+.t{min-width:62px;font-weight:600;color:var(--sea)}.w{color:var(--warn);font-size:14px}
+a.map{display:inline-block;margin-top:2px;color:var(--sea);font-size:14px;text-decoration:none;border-bottom:1px solid var(--sea)}
+nav.bot{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+nav.bot button{flex:1;border:0;background:none;color:var(--mute);padding:12px 4px;font:inherit;font-size:13px}a.btn{display:block;text-align:center;text-decoration:none;padding:12px;font:inherit;border-radius:10px}
+nav.bot button.on{color:var(--sea);font-weight:700}
+.pager{display:flex;gap:8px;margin:12px 0}.pager button,.btn{flex:1;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:12px;font:inherit}
+.btn.p{background:var(--sea);color:#fff;border-color:var(--sea)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:4px 0 8px}.chips button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px}.chips button.on{background:var(--sea);color:#fff;border-color:var(--sea)}.chips button.bk{border-color:var(--bike)}
+label.ck{display:flex;gap:10px;padding:9px 0;border-top:1px solid var(--line);align-items:flex-start}label.ck:first-of-type{border-top:0}label.ck input{width:22px;height:22px;flex:none;accent-color:var(--sea)}
+input,select{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin:4px 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:7px 4px;border-top:1px solid var(--line);text-align:left}
+.tot{font-size:24px;font-weight:700}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sea);outline-offset:2px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:8px;align-items:center;background:var(--bg);padding:8px 0}.bar button{flex:1;border:0;background:var(--sea);color:#fff;border-radius:10px;padding:12px 6px;font:inherit;font-weight:600}.bar button:disabled{opacity:.35}.bar b{flex:none;font-size:13px;color:var(--mute)}label.f{display:block;font-size:13px;color:var(--mute);margin-top:6px}.err{color:#c0392b;font-size:14px;min-height:20px}td.r,th.r{text-align:right}details.card>summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:28px}details.card>summary::-webkit-details-marker{display:none}details.card>summary::after{content:'▾';color:var(--sea);font-size:18px}details.card[open]>summary::after{content:'▴'}textarea{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin:6px 0 2px;min-height:120px}.rw{padding:2px 12px 4px}.tk{position:absolute;top:-3px;width:2px;height:14px;background:var(--mute);border-radius:1px}.rt{position:relative;height:8px;margin:26px 0 6px;background:var(--line);border-radius:6px}.rf{height:100%;background:var(--bike);border-radius:6px}.rb{position:absolute;top:-24px;font-size:22px;line-height:1;transform:translateX(-50%) scaleX(-1)}</style></head><body><main id="app"></main>
+<nav class="bot"><button data-v="days">Days</button><button data-v="route">Bike tour</button><button data-v="exp">Expenses</button><button data-v="info">Info</button></nav>
+<span id="syncStatus" hidden></span>
+<script src="shared-expenses.js"></script>
+<script>
+function downloadFile(filename, content, type) {
+ const blob = new Blob([content], {type});
+ const url = URL.createObjectURL(blob);
+ const link = document.createElement('a');
+ link.href = url;
+ link.download = filename;
+ document.body.appendChild(link);
+ link.click();
+ link.remove();
+ setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+const M=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+const D=[
+{d:'Fri 9 Oct',t:'Doha → Athens',ic:'✈️',hotel:'Excellent Home',hm:'Excellent Home Athens',
+ s:[['04:30','Flight Doha → Abu Dhabi'],['~05:35','Abu Dhabi connection (about 1 h 5 min)'],['06:35','Flight Abu Dhabi → Athens'],['12:35','Land in Athens','Athens International Airport'],['Afternoon','Check in at Excellent Home and leave the bags (it is close to MotoGreece)','Excellent Home Athens'],['16:00','Meet MotoGreece at 85 Astidamantos: briefing, pay the remaining balance, and each rider gives a credit card for the security deposit. The bikes are collected on 10 Oct','MotoGreece 85 Astidamantos Athens'],['Evening','Easy night before the ride']],
+ c:['Passports','Printed or saved booking confirmations','Motorcycle licences and the MotoGreece booking letter','Phone charger, power bank, EU plug adapter','Check in for flights online','Baggage on Etihad: 30 kg checked, 8 kg hand luggage','Credit card for the bike security deposit (each rider)','Money or card for the remaining MotoGreece balance','Licences and passports for the 16:00 briefing']},
+{d:'Sat 10 Oct',t:'Athens → Nafplio',ic:'🏍️',km:185,bike:1,hotel:'Leto Nuevo Hotel, Nafplio',hm:'Leto Nuevo Hotel Nafplio',
+ s:[['Morning','Breakfast and check out of Excellent Home'],['By 10:00','Arrive at MotoGreece, 85 Astidamantos. Load the bags on the bikes, final checks, collect the keys','MotoGreece 85 Astidamantos Athens'],['About 10:30','Set off. Athens → Nafplio, about 185 km'],['Lunch','Stop on the way, fuel up'],['Afternoon','Arrive and check in, then stroll Nafplio old town','Leto Nuevo Hotel Nafplio']],
+ c:['Photograph both bikes before leaving (damage check)','Helmet, gloves, jacket, rain layer','Phone mount and charging cable','Download offline maps for the Peloponnese','Save the MotoGreece number: +30 210 7255040','Check out of Excellent Home before going to MotoGreece']},
+{d:'Sun 11 Oct',t:'Nafplio → Monemvasia',ic:'🏍️',km:200,bike:1,hotel:'Hotel Byzantino Monemvasia',hm:'Hotel Byzantino Monemvasia',
+ s:[['Morning','Breakfast and load the bikes'],['09:30','Ride Nafplio → Monemvasia, about 200 km'],['Midday','Lunch and fuel stop'],['Afternoon','Check in and walk the castle town','Monemvasia castle town']],
+ c:['Check tyre pressure and chain','Fuel above half tank before leaving','Water and snack','Charge phone and intercom overnight']},
+{d:'Mon 12 Oct',t:'Monemvasia → Karavostasi, Itilo, Mani',ic:'🏍️',km:170,bike:1,hotel:'Porto Vitilo Boutique Hotel, Karavostasi (Itilo)',hm:'Porto Vitilo Boutique Hotel Itilo Mani',
+ s:[['Morning','Breakfast, load the bikes'],['09:30','Ride Monemvasia → Karavostasi, Itilo, Mani, about 170 km'],['Midday','Lunch stop'],['Afternoon','Check in and relax','Porto Vitilo Boutique Hotel Itilo Mani']],
+ c:['Fuel up early, remote Mani has fewer stations','Wear layers, mountain air cools','Save the hotel location offline']},
+{d:'Tue 13 Oct',t:'Limeni → Pylos',ic:'🏍️',km:210,bike:1,hotel:'Philip Hotel, Pylos',hm:'Philip Hotel Pylos',
+ s:[['Morning','Breakfast at Limeni'],['09:00','Ride Limeni → Pylos, about 210 km (longest day so far)'],['Midday','Long lunch break'],['Afternoon','Arrive, check in, walk Pylos harbour','Philip Hotel Pylos']],
+ c:['Leave early, 210 km with stops','Fuel at the first sensible station','Refill water','Plan sunset at Pylos harbour']},
+{d:'Wed 14 Oct',t:'Pylos → Vitina',ic:'🏍️',km:175,bike:1,hotel:'Vitina House Hotel (night 1 of 2)',hm:'Vitina House Hotel Arcadia',
+ s:[['Morning','Breakfast, load the bikes'],['09:30','Ride Pylos → Vitina, about 175 km'],['Midday','Lunch stop'],['Afternoon','Arrive in Vitina and check in','Vitina House Hotel Arcadia']],
+ c:['Warm layers, Vitina sits in the mountains','Check visor and rain gear','Charge devices']},
+{d:'Thu 15 Oct',t:'Vitina loop day',ic:'🏍️',km:210,bike:1,hotel:'Vitina House Hotel (night 2 of 2)',hm:'Vitina House Hotel Arcadia',
+ s:[['Morning','Breakfast, no luggage needed for the loop'],['09:30','Loop ride from Vitina, about 210 km'],['Midday','Lunch on the loop'],['Late afternoon','Back at the hotel']],
+ c:['Fuel before the loop','Pack water and snacks','Rain gear on the bike']},
+{d:'Fri 16 Oct',t:'Vitina → Athens',ic:'🏍️',km:245,bike:1,hotel:'Excellent Home',hm:'Excellent Home Athens',
+ s:[['Morning','Early breakfast, start early (about 245 km)'],['Midday','Lunch and last fuel stop'],['By end of day','Return motorcycles to MotoGreece. Tour ends','MotoGreece 85 Astidamantos Athens'],['Evening','Check in at Excellent Home','Excellent Home Athens']],
+ c:['Fill the tank before returning bikes','Photograph bikes on return','Remove all gear and phone mounts','Repack for Santorini: one 25 kg checked bag (Santhosh only), 8 kg carry-ons','Settle any rental extras']},
+{d:'Sat 17 Oct',t:'Athens → Santorini',ic:'✈️',hotel:'Grand View, Megalochori (check-in 15:00–00:00)',hm:'Grand View Megalochori Santorini',
+ s:[['Morning','Check out of Excellent Home, light bag only'],['~14:30','Be at Athens airport for the domestic flight','Athens International Airport'],['16:30','SKY express GQ352, Athens → Fira (JTR), direct 55 min. Lands 17:25. Booking ref L1C9TA','Santorini Airport JTR'],['After 17:25','Taxi or transfer to Grand View in Megalochori. Check-in is open until midnight','Grand View Megalochori Santorini'],['Evening','Settle in, dinner nearby. Hotel phone +30 2286 081003']],
+ c:['Athens → Fira bags: one 25 kg checked bag (Santhosh only), 2 carry-ons (8 kg, 23×40×55 cm), 2 personal items','Hotel address saved offline','Scooter rental booking for 18–19 Oct','Sunscreen','Arrange the airport transfer']},
+{d:'Sun 18 Oct',t:'Santorini day 1: Oia, Fira, sunset',ic:'🌅',hotel:'Grand View, Megalochori',hm:'Grand View Megalochori Santorini',
+ s:[['10:00','Collect the scooter at Grand View (MotoSantorini, ref 1789828474DRH)','Grand View Megalochori Santorini'],['10:30–12:30','Oia village: quiet alleys before the cruise groups arrive. Allow ride time from Megalochori','Oia Santorini'],['13:00–15:00','Fira town: lunch, shops, caldera views','Fira Santorini'],['15:00–16:30','Cliffside walk Fira to Imerovigli via Firostefani. Stop at the Three Bells of Fira','Three Bells of Fira'],['17:00–19:00','Wine tasting and sunset. Ride south to Santo Wines or Pyrgos village','Santo Wines Santorini']],
+ c:['Licences and ID for the scooter pickup','Helmets: ask MotoSantorini at pickup','Reserve wine tasting','Comfortable shoes','Charge camera and phone']},
+{d:'Mon 19 Oct',t:'Santorini day 2 → Athens',ic:'✈️',hotel:'Aionion Residences, Athens',hm:'Aionion Residences Athens',w:'Check-out is by 11:00 but the scooter goes back to Grand View at 16:00. Ask the hotel to hold your bags until then.',
+ s:[['08:30','Breakfast and pack. Check out by 11:00, leave bags with Grand View','Grand View Megalochori Santorini'],['09:00–10:00','Pyrgos hilltop and castle ruins (360° views)','Pyrgos Kallistis Santorini'],['10:15–11:00','Megalochori village: bell towers and Greek coffee','Megalochori Santorini'],['11:20–12:20','Red Beach viewpoint (5-minute walk to the photo ledge)','Red Beach Santorini'],['12:35–14:30','Akrotiri peninsula and lighthouse. Seafood lunch facing the caldera','Akrotiri Lighthouse Santorini'],['15:30','Ride back to Megalochori'],['16:00','Drop off the scooter at Grand View, collect your bags, taxi to the airport','Grand View Megalochori Santorini'],['~17:00','At Santorini airport','Santorini Airport JTR'],['18:40','Aegean A3359, Fira → Athens, direct 50 min. Lands 19:30. Booking ref Y943OY'],['Evening','Check in at Aionion Residences. Late-night gyro nearby','Aionion Residences Athens']],
+ c:['Check out by 11:00 and leave bags with the hotel','Drop off scooter at 16:00 and keep receipt','Photograph the scooter on return','Boarding passes and passports ready']},
+{d:'Tue 20 Oct',t:'Historic Athens + Psyrri',ic:'🏛️',hotel:'Aionion Residences, Athens',hm:'Aionion Residences Athens',
+ s:[['08:30–11:00','Acropolis and Parthenon (early entry beats the lines). Includes the Erechtheion','Acropolis Athens'],['11:15–13:00','Ancient Agora, then Monastiraki flea market','Ancient Agora of Athens'],['13:00–14:30','Souvlaki lunch: Kostas (5 Pentelis St) or O Thanasis (Monastiraki Square)','Kostas Souvlaki 5 Pentelis Athens'],['15:00–17:30','Exarcheia: street art, record shops, cafes','Exarcheia Athens'],['20:00 onward','Psyrri nightlife: breweries, wine bars, mezedopoleia','Psyrri Athens']],
+ c:['Check Acropolis ticket and opening hours','Water bottle and hat','Comfortable shoes','Keep valuables close in crowds']},
+{d:'Wed 21 Oct',t:'Stadium, market, Lycabettus, Gazi',ic:'🌇',hotel:'Aionion Residences, Athens',hm:'Aionion Residences Athens',
+ s:[['10:00–12:00','Panathenaic Stadium (tickets at the counter)','Panathenaic Stadium Athens'],['12:30–15:00','Varvakios Central Market. Lunch in the basement tavernas: Diporto or Epirus','Varvakios Central Market Athens'],['17:30–19:15','Mount Lycabettus sunset. Take the funicular up','Lycabettus Funicular Athens'],['21:00 onward','Gazi district: drinks and music around the old gasworks','Gazi Athens']],
+ c:['Start packing for the flight','Jacket for the Lycabettus summit','Settle outstanding bills']},
+{d:'Thu 22 Oct',t:'Athens → Doha',ic:'✈️',hotel:'Check out',hm:'Athens International Airport',
+ s:[['Morning','Check out of Aionion Residences'],['~10:50','Be at Athens airport (3 hours before departure)','Athens International Airport'],['13:50','Etihad EY190, Athens → Abu Dhabi, non-stop 4 h 45 min. Lands 19:35, Terminal A. Booking ref Z34KJG'],['19:35','Connection at Abu Dhabi, 1 h 10 min, Terminal A'],['20:45','Etihad EY669, Abu Dhabi → Doha, 1 h 05 min. Lands 20:50 at Hamad International']],
+ c:['Passports','Check in online (seats not assigned yet)','Baggage on Etihad: 30 kg checked, 8 kg hand luggage','Boarding passes saved offline','Check the room for forgotten items','Tax-free shopping receipts if needed']}
+];
+const IN={
+ stays:[['9 Oct','Excellent Home, Athens'],['10 Oct','Leto Nuevo Hotel, Nafplio'],['11 Oct','Hotel Byzantino Monemvasia'],['12 Oct','Porto Vitilo Boutique Hotel, Karavostasi (Itilo), Mani'],['13 Oct','Philip Hotel, Pylos'],['14–15 Oct','Vitina House Hotel'],['16 Oct','Excellent Home, Athens'],['17–18 Oct','Grand View, Megalochori, Santorini'],['19–21 Oct','Aionion Residences, Athens']],
+ todo:['Passports valid and packed','Motorcycle licences for both riders','MotoGreece booking letter saved offline','Travel insurance incl. motorcycle cover','Offline maps downloaded','Phone roaming or eSIM sorted','Cards and some cash for tolls and fuel','Chargers, power bank, EU adapter']
+};
+const WX={ath:{n:'Athens',t:'about 23°C by day, 14–16°C at night',w:'Mild and mostly dry. A light layer for evenings and a small chance of rain.'},
+nau:{n:'Nafplio',t:'about 22–24°C by day, 14–17°C at night (estimate)',w:'Coastal and mild. Evenings feel cooler on the bike.'},
+mon:{n:'Monemvasia',t:'about 22–24°C by day, 14–17°C at night (estimate)',w:'Coastal and mild. Breezy on the headlands.'},
+man:{n:'Karavostasi, Mani',t:'about 22–24°C by day, 14–17°C at night (estimate)',w:'Warm by day, cooler after sunset. Few places to shelter, carry a rain layer.'},
+pyl:{n:'Pylos',t:'about 22–24°C by day, 14–17°C at night (estimate)',w:'The west coast gets more autumn rain than the east. Keep rain gear handy.'},
+vit:{n:'Vitina',t:'about 17–20°C by day, 5–9°C at night (estimated from nearby Tripoli, Vitina is higher)',w:'Cool in the mountains. Bring a warm layer or fleece and gloves for early rides.'},
+san:{n:'Santorini',t:'about 22°C by day, lows about 14–18°C',w:'Often windy, cool evenings and the odd light shower. A light jacket for sunset.'}};
+const PL=['ath','nau','mon','man','pyl','vit','vit','ath','san','san','san','ath','ath','ath'];
+const POI={
+1:[['Corinth Canal','10–15 min','Photo from the bridge, about an hour from Athens','Corinth Canal bridge'],['Mycenae','Longer, about 90 min','Lion Gate and royal tombs. Worth the time if the day allows','Ancient Mycenae'],['Tiryns','20–30 min','Huge Bronze Age walls, right beside the road to Nafplio','Tiryns archaeological site'],['Epidaurus theatre','Longer, 45+ min','Famous ancient theatre, about 30 min from Nafplio. Optional detour','Ancient Theatre of Epidaurus'],['Palamidi fortress','Evening','Views over Nafplio. Check the closing time','Palamidi Fortress Nafplio']],
+2:[['Paralio Astros','10–15 min','Seaside promenade, a good coffee stop','Paralio Astros'],['Leonidio','10–15 min','Town below dramatic red cliffs','Leonidio'],['Moni Elonis and Kosmas','20–30 min','Cliffside monastery and a mountain village with a plane-tree square, on the Mount Parnon road (optional)','Kosmas Laconia'],['Geraki','20 min','Frankish castle and Byzantine churches (optional)','Geraki Laconia castle'],['Monemvasia castle town','Evening','Cobbled lanes and sea views','Monemvasia Castle Town']],
+3:[['Gytheio and Marathonisi islet','10–15 min','Harbour town. The islet has the Tzanetakis tower','Marathonisi Gytheio'],['Dimitrios shipwreck','10–15 min','Rusting wreck on Valtaki beach near Gytheio','Dimitrios shipwreck Valtaki Gytheio'],['Areopoli','10–15 min','Stone tower houses, the heart of the Mani','Areopoli'],['Diros Caves','Longer, 45 min','Boat tour through lit caves. Check opening times','Diros Caves Pyrgos Dirou'],['Vathia','Longer, optional','Tower village in the deep Mani, a detour south of Areopoli','Vathia Mani'],['Kelefa Castle, Itilo','20–30 min','Ottoman fortress above Itilo with bay views','Kelefa Castle Oitylo']],
+4:[['Limeni','10–15 min','Harbour and the stone Mavromichalis towers','Limeni Mani'],['Kardamyli','15–20 min','Old town, tower houses and sea views','Kardamyli'],['Kalamata','15–20 min','Old town and market. Fuel and lunch stop','Kalamata old town'],['Koroni castle','30 min','Venetian castle above a whitewashed town','Koroni Castle'],['Methoni castle','45 min','Huge sea fortress with the Bourtzi tower','Methoni Castle'],['Voidokilia beach','15–20 min','Omega-shaped bay next to Gialova lagoon. Lovely near sunset','Voidokilia Beach']],
+5:[['Palace of Nestor','Longer, 45 min','Mycenaean palace on the road north of Pylos. Check opening hours','Palace of Nestor Pylos'],['Kyparissia castle','15 min','Hilltop castle and sea views (optional)','Kyparissia Castle'],['Temple of Apollo Epicurius, Bassae','30–45 min','UNESCO temple high in the mountains, by the architect of the Parthenon','Temple of Apollo Epicurius Bassae'],['Karytaina','15 min','Medieval castle above the Alfeios valley, called the Toledo of Greece','Karytaina Castle'],['Vitina','Evening','Walk the village and try the local sweets','Vytina Arcadia']],
+6:[['Dimitsana','20–30 min','Stone village on the Lousios Gorge. Open-Air Water Power Museum','Dimitsana'],['Moni Prodromou','30–40 min','Monastery built into the cliff above the Lousios Gorge. Short walk down','Prodromou Monastery Lousios Gorge'],['Stemnitsa','15–20 min','Picturesque village known for silver crafts','Stemnitsa'],['Karytaina','15 min','Medieval castle (skip if you saw it on 14 Oct)','Karytaina Castle'],['Zatouna or Elliniko','10–15 min','Small villages with stone architecture (optional)','Zatouna Arcadia'],['Mount Mainalo forests','10 min','Fir forest roads near Vitina, good for photos','Mount Maenalo Vytina']],
+7:[['Tripoli','10–15 min','Fuel stop. Coffee on the old town square if you like','Tripoli Arcadia'],['Nemea','20–30 min','Temple of Zeus in wine country','Ancient Nemea Temple of Zeus'],['Acrocorinth and Ancient Corinth','Longer, 40+ min','Castle with huge views over the Isthmus. Skip if time is short','Acrocorinth'],['Corinth Canal','10 min','Last look at the canal before Athens','Corinth Canal bridge']]};
+const PO=new Set();
+const wl=n=>'https://www.google.com/search?q='+encodeURIComponent('weather '+n+' Greece');
+const $=s=>document.querySelector(s),app=$('#app');
+let view='days',day=(()=>{const t=Math.floor((Date.now()-new Date(2026,9,9).getTime())/864e5);return t>=0&&t<=13?t:0})(),ex=[];
+const S={get(k,f){try{const v=localStorage.getItem(k);return v?JSON.parse(v):f}catch(e){return f}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const sharedMode=/^https?:$/.test(location.protocol);let SYNC=null,expenseSaving=false;
+ex=sharedMode?[]:S.get('gr_ex',[]).map((e,i)=>Object.assign({id:'l'+i},e));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function nav(){document.querySelectorAll('nav.bot button').forEach(b=>b.classList.toggle('on',b.dataset.v===view))}
+let NT=S.get('gr_nt',{});
+function saveNote(i,v){NT[i]=v;S.set('gr_nt',NT)}
+const noteBox=i=>`<textarea data-n="${i}" placeholder="Type here what to remember...">${esc(NT[i]||'')}</textarea>`;
+function noteBlock(i){return `<details class="card"><summary>Things to remember${NT[i]?' (has notes)':''}</summary>${noteBox(i)}</details>`}
+function rideHTML(i){const bk=D.map((z,j)=>({j,k:z.bike?z.km:0})).filter(o=>o.k),tot=bk.reduce((a,o)=>a+o.k,0);let cum=0,ticks='';
+ bk.forEach(o=>{cum+=o.k;if(cum<tot)ticks+=`<div class="tk" style="left:${cum/tot*100}%"></div>`});
+ const done=bk.filter(o=>o.j<=i).reduce((a,o)=>a+o.k,0),pct=done/tot*100,left=tot-done,n=bk.filter(o=>o.j<=i).length;
+ const lab=D[i].bike?`Day ${n} of ${bk.length}`:done===0?'Bike tour starts Sat 10 Oct':'Bike tour finished';
+ return `<div class="rw"><div class="rt">${ticks}<div class="rf" style="width:${pct}%"></div><div class="rb" style="left:${pct}%">🏍️</div></div><div class="sub" style="text-align:center">${lab}: <b>${done}</b> of ${tot} km done, <b>${left}</b> to go</div></div>`}
+function notesSec(){const t=Math.floor((Date.now()-new Date(2026,9,9).getTime())/864e5);return sec('Things to remember by day',D.map((z,i)=>`<details class="card" ${(i===t||i===t+1)?'open':''}><summary>${z.d}: ${esc(z.t)}${NT[i]?' •':''}</summary>${noteBox(i)}</details>`).join(''))}
+function notesV(){const t=Math.floor((Date.now()-new Date(2026,9,9).getTime())/864e5);
+ return '<h1>Things to remember</h1><p class="sub">Tap a day, type what to remember, and it saves by itself.'+'</p>'+D.map((z,i)=>`<details class="card" ${(i===t||i===t+1)?'open':''}><summary>${z.d}: ${esc(z.t)}${NT[i]?' •':''}</summary>${noteBox(i)}</details>`).join('')}
+const CO={ath:[37.98,23.73],nau:[37.57,22.8],mon:[36.69,23.04],man:[36.7,22.38],pyl:[36.91,21.7],vit:[37.67,22.17],san:[36.42,25.43]};
+function sun(i){const dm=parseInt(D[i].d.split(' ')[1]),c=CO[PL[i]],r=Math.PI/180,N=Math.floor((Date.UTC(2026,9,dm)-Date.UTC(2026,0,0))/864e5),g=2*Math.PI/365*(N-1),eot=229.18*(.000075+.001868*Math.cos(g)-.032077*Math.sin(g)-.014615*Math.cos(2*g)-.040849*Math.sin(2*g)),dec=.006918-.399912*Math.cos(g)+.070257*Math.sin(g)-.006758*Math.cos(2*g)+.000907*Math.sin(2*g)-.002697*Math.cos(3*g)+.00148*Math.sin(3*g),ch=(Math.sin(-.833*r)-Math.sin(c[0]*r)*Math.sin(dec))/(Math.cos(c[0]*r)*Math.cos(dec)),H=Math.acos(ch)/r*4,noon=720-4*c[1]-eot+180;return[noon-H,noon+H]}
+const hm=m=>{m=Math.round(m);return String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0')};
+const FT={1:'Fill up in Athens before you leave. The Athens to Corinth motorway has toll booths, keep a card or coins ready.',2:'Fill up in Nafplio. Stations thin out on the Parnon mountain road, so top up at Astros or Leonidio.',3:'Fill up at Molaoi or Gytheio. Stations are few in the Mani, so top up at Areopoli before Itilo.',4:'Fill up at Kardamyli or Kalamata. Top up again before heading out to Koroni and Methoni.',5:'Fill up in Pylos or Kyparissia. Mountain stretches have few stations, top up before Bassae.',6:'Start with a full tank in Vitina. Top up in Dimitsana or Stemnitsa if you are below half.',7:'Fill up in Tripoli. The motorway towards Corinth and Athens has toll booths, keep a card or coins ready.'};
+const rt=i=>{const d=D[i],o=i>1?D[i-1].hm:'MotoGreece 85 Astidamantos Athens',dest=i===7?'MotoGreece 85 Astidamantos Athens':d.hm,w=(POI[i]||[]).filter(q=>q[1]!=='Evening').slice(0,8).map(q=>q[3]+' Greece').join('|');return 'https://www.google.com/maps/dir/?api=1&travelmode=two-wheeler&origin='+encodeURIComponent(o)+'&destination='+encodeURIComponent(dest)+'&waypoints='+encodeURIComponent(w)};
+const dayText=i=>{const d=D[i];return d.d+': '+d.t.replace(' → ',' to ')+'\nStay: '+d.hotel+'\n'+d.s.map(r=>r[0]+' '+r[1]).join('\n')+(POI[i]?'\nStops: '+POI[i].map(q=>q[0]).join(', '):'')};
+function extras(i){const d=D[i],q=sun(i);let h='<div class="two">'+(d.km?`<a class="btn p" target="_blank" rel="noopener" href="${rt(i)}">Open route in Maps</a>`:'')+`<button class="btn" id="shr">Share day plan</button></div>`;
+ h+=`<div class="card">Sunrise <b>${hm(q[0])}</b>, sunset <b>${hm(q[1])}</b>`+(d.km?`<br><span class="sub">Latest start to arrive 30 min before sunset: <b>${hm(q[1]-30-d.km/45*60)}</b> (at 45 km/h including stops)</span>`:'')+'</div>';
+ if(FT[i])h+=`<details class="card"><summary>Fuel and tolls</summary><div class="sub" style="margin-top:8px">${FT[i]}</div></details>`;return h}
+const BK=['Acropolis timed entry ticket (20 Oct)','Santorini wine tasting (18 Oct)','Sunset dinner table in Oia or Fira (18 Oct)','Airport transfer to Grand View (17 Oct)','Taxi from Grand View to the airport (19 Oct)','Etihad online check-in and seats (22 Oct)','Dinner table in Monemvasia or Pylos harbour (optional)','Confirm the MotoGreece bike return time (16 Oct)','MotoGreece briefing, balance and card deposits (9 Oct, 16:00)'];
+const DOCS=['Passports valid, with visa if required','Visa approval and hotel bookings printed','Return flights: Etihad Z34KJG','Travel insurance (medical and motorcycle)','Motorcycle licences or international permit','Qatar residence permit copy','Passport copies saved offline and emailed','Embassy of India in Athens: save the number offline','Some euro cash and a working card','MotoGreece booking letter saved offline','Offline maps downloaded','Phone roaming or eSIM sorted','Chargers, power bank, EU adapter'];
+const HELP=['Stay safe first: move off the road, switch on hazard lights.','Injury or danger: call 112 (ambulance 166, police 100).','Breakdown or damage: call MotoGreece +30 210 7255040 or email info@motogreece.gr.','Photograph the scene, both bikes, number plates, and take names and phone numbers. Do not admit fault.','Accident: ask for a police report, MotoGreece and insurers will need it.','Lost passport or wallet: report to the local police, then contact the Embassy of India in Athens.','Larger hospitals are in Kalamata, Tripoli and Nafplio. Pharmacies are marked with a green cross.','Keep the hotel names and the MotoGreece number on paper in case the phone dies.'];
+const FOOD=[['Athens','Souvlaki, spanakopita, loukoumades (honey doughnuts)'],['Nafplio','Fresh seafood, gelato in the old town'],['Monemvasia','Seafood, Monemvasia wine, almond sweets'],['Mani','Siglino (cured pork), local olive oil, orange pies'],['Kalamata and Pylos','Kalamata olives, fish at Gialova and Pylos harbour'],['Vitina and Arcadia','Mountain lamb and cheese, sweets in Vitina'],['Santorini','Fava, tomato fritters, white eggplant, Assyrtiko wine']];
+const PH=[['Hello','Yassou (Yassas, polite)'],['Good morning','Kalimera'],['Good evening','Kalispera'],['Thank you','Efharisto'],['Please / You are welcome','Parakalo'],['Yes / No','Ne / Ochi'],['Excuse me / Sorry','Signomi'],['The bill, please','To logariasmo, parakalo'],['Water','Nero'],['A beer','Mia bira'],['Cheers','Yamas'],['Petrol','Venzini'],['Fill it up, please','Gemiste to, parakalo'],['Help','Voithia'],['How much is it?','Poso kani?'],['Do you speak English?','Milate Anglika?'],['I do not understand','Den katalaveno'],['Where is...?','Pou ine...?'],['Delicious','Nostimo']];
+const bd=()=>S.get('gr_bd',{});
+const ckl=(k,t)=>`<label class="ck"><input type="checkbox" data-b="${k}" ${bd()[k]?'checked':''}><span>${esc(t)}</span></label>`;
+const sec=(t,b)=>`<details class="card"><summary>${t}</summary><div style="margin-top:8px">${b}</div></details>`;
+function moreSecs(){return '<h3>More</h3>'+sec('If something goes wrong',HELP.map(t=>`<div class="row">${esc(t)}</div>`).join(''))+sec('Bookings to make ahead',BK.map((t,i)=>ckl('bk'+i,t)).join(''))+sec('Documents and checks',DOCS.map((t,i)=>ckl('dc'+i,t)).join(''))+sec('Food to try',FOOD.map(f=>`<div class="row"><div class="t" style="min-width:96px">${f[0]}</div><div>${esc(f[1])}</div></div>`).join(''))+sec('Greek phrases',PH.map(f=>`<div class="row"><div class="t" style="min-width:150px;color:var(--ink)">${esc(f[0])}</div><div><b>${esc(f[1])}</b></div></div>`).join(''))}
+let FX=S.get('gr_fx',{});
+function fxTxt(k){const t=tally(),r=parseFloat(FX[k]);if(!(r>0))return 'Type today rate';return `Total ${Math.round(t.t*r)}, each ${Math.round(t.t/2*r)}, settle up ${Math.round(Math.abs(t.s-t.j)/2*r)}`}
+const fxCard=()=>'<h3>In other currencies</h3><div class="card">'+[['q','QAR']].map(a=>`<div class="row"><div style="flex:1">1 EUR = how many ${a[1]}?<input data-fx="${a[0]}" type="number" inputmode="decimal" step="0.0001" value="${FX[a[0]]||''}"></div><div class="sub" id="fx${a[0]}" style="flex:1">${fxTxt(a[0])}</div></div>`).join('')+'</div>';
+function days(){
+ const x=D[day],ck=S.get('gr_ck',{});
+ let h=`<div class="bar"><button data-n="-1" ${day==0?'disabled':''}>‹ Previous day</button><b>Day ${day+1} of ${D.length}</b><button data-n="1" ${day==D.length-1?'disabled':''}>Next day ›</button></div>`+'<div class="chips">'+D.map((z,i)=>`<button class="${i===day?'on':''} ${z.bike?'bk':''}" data-d="${i}">${z.d.split(' ')[1]} Oct</button>`).join('')+'</div>';
+ h+=rideHTML(day);
+ h+=`<h1>${x.ic} ${esc(x.t)}</h1><p class="sub">${x.d} · Day ${day+1} of 14</p>`;
+ h+=extras(day);
+ if(x.km)h+=`<div class="card hero bike"><div class="big">${x.km} km</div><div class="sub" style="margin:4px 0 0">Motorcycle tour day ${day}${day>=1&&day<=7?' of 7':''}</div></div>`;
+ h+=`<div class="card hero"><b>🏨 ${esc(x.hotel)}</b><br><a class="map" target="_blank" rel="noopener" href="${M(x.hm)}">Open in Maps</a></div>`;
+ h+='<section id="tripWeather" class="card weather-card" aria-label="Live weather"><h2>Live weather</h2><p class="weather-status">Loading weather…</p></section>';
+ if(POI[day])h+=`<details class="card" data-po="${day}" ${PO.has(day)?'open':''}><summary>Places to stop on the way (${POI[day].length})</summary>`+'<div class="sub" style="margin:8px 0 6px">In order along the route. Quick stops take 10–15 min. These follow the usual roads, your MotoGreece GPS track may differ a little. Check opening times and reach your hotel before dark.</div>'+POI[day].map(q=>`<div class="row"><div class="t" style="color:var(--bike);min-width:78px;font-size:13px">${q[1]}</div><div><b>${q[0]}</b><br><span class="sub">${q[2]}</span><br><a class="map" target="_blank" rel="noopener" href="${M(q[3]+' Greece')}">Maps</a></div></div>`).join('')+'</details>';
+ if(x.w)h+=`<div class="card w">⚠️ ${esc(x.w)}</div>`;
+ h+='<h3>Suggested timings</h3><div class="card">'+x.s.map(r=>`<div class="row"><div class="t">${esc(r[0])}</div><div>${esc(r[1])}${r[2]?`<br><a class="map" target="_blank" rel="noopener" href="${M(r[2])}">Maps</a>`:''}</div></div>`).join('')+'</div>';
+ h+='<h3>Checklist</h3><div class="card">'+x.c.map((c,i)=>{const k=day+'-'+i;return `<label class="ck"><input type="checkbox" data-k="${k}" ${ck[k]?'checked':''}><span>${esc(c)}</span></label>`}).join('')+'</div>';
+ h+='<h3>Expenses for this day</h3>'+form(day);
+ const dl=ex.map((e,i)=>({e,i})).filter(o=>o.e.d===day);
+ if(dl.length)h+='<div class="card"><table>'+rows(dl)+`<tr><td></td><td><b>Day total</b></td><td></td><td class="r"><b>${eur(sum(dl.map(o=>o.e)))}</b></td><td></td></tr></table></div>`;
+ h+=noteBlock(day);
+ h+=`<div class="pager"><button data-n="-1" ${day==0?'disabled':''}>Previous day</button><button class="btn p" data-n="1" ${day==D.length-1?'disabled':''}>Next day</button></div>`;
+ app.innerHTML=h;
+}
+function route(){
+ const b=D.filter(z=>z.bike),tot=b.reduce((a,z)=>a+z.km,0);
+ let h=`<h1>🏍️ Motorcycle tour</h1><p class="sub">10–16 Oct · Moto Greece</p><div class="card hero bike"><div class="big">${tot} km</div><div class="sub" style="margin:4px 0 0">across 7 riding days</div></div>`;
+ h+='<div class="card"><b>Bikes</b><div class="row"><div>Cyril: BMW F800 GS</div></div><div class="row"><div>Santhosh: Honda NC750X</div></div></div>';
+ h+='<h3>Daily routes</h3><div class="card"><table><tr><th>Day</th><th>Route</th><th>km</th></tr>'+b.map(z=>`<tr><td>${z.d.slice(4)}</td><td>${esc(z.t)}</td><td><b>${z.km}</b></td></tr>`).join('')+`<tr><td></td><td><b>Total</b></td><td><b>${tot}</b></td></tr></table></div>`;
+ h+='<h3>Overnight stops</h3><div class="card">'+b.map(z=>`<div class="row"><div class="t">${z.d.slice(4)}</div><div>${esc(z.hotel)}<br><a class="map" target="_blank" rel="noopener" href="${M(z.hm)}">Maps</a></div></div>`).join('')+'</div>';
+ h+='<h3>Daily riding habits</h3><div class="card"><div class="row">Fuel when the tank is at half, especially in Mani and the mountains.</div><div class="row">Start early. Daylight is shorter in October.</div><div class="row">Photograph the bikes at pickup and return.</div></div>';
+ app.innerHTML=h;
+}
+const CATS=['Breakfast','Lunch','Dinner','Drinks / beer','Petrol','Hotel','Transport','Tickets','Other'],PP=['Santhosh','John'];
+const eur=n=>'€'+n.toFixed(2),sum=l=>l.reduce((a,e)=>a+e.a,0);let ef=-1;
+function form(d){return `<div class="card"><label class="f">Day<select id="eD">${D.map((z,i)=>`<option value="${i}" ${i===d?'selected':''}>Day ${i+1}: ${z.d}</option>`).join('')}</select></label><label class="f">Spent on<select id="eC">${CATS.map(c=>`<option>${c}</option>`).join('')}</select></label><label class="f">Details (optional)<input id="eN" placeholder="e.g. dinner at the harbour"></label><div class="two"><label class="f">Who paid<select id="eP"><option value="">Choose</option>${PP.map(p=>`<option>${p}</option>`).join('')}</select></label><label class="f">Amount in €<input id="eA" type="number" inputmode="decimal" step="0.01" placeholder="0.00"></label></div><div class="err" id="eErr"></div><button class="btn p" id="eAdd" style="width:100%" ${expenseSaving?'disabled':''}>Add expense</button></div>`}
+function rows(l){return l.map(o=>{const e=o.e;return `<tr><td>${D[e.d].d.slice(4)}</td><td>${esc(e.c)}${e.n&&e.n!==e.c?'<br><span class="sub">'+esc(e.n)+'</span>':''}</td><td>${esc(e.p||'?')}</td><td class="r">${eur(e.a)}</td><td><button data-x="${o.i}" aria-label="Delete" style="border:0;background:none;color:var(--mute);font-size:20px">×</button></td></tr>`}).join('')}
+function tally(){const s=sum(ex.filter(e=>e.p==='Santhosh')),j=sum(ex.filter(e=>e.p==='John')),u=sum(ex.filter(e=>!e.p)),df=(s-j)/2;
+ const msg=ex.length===0?'Add expenses to see the split':Math.abs(df)<0.005?'All settled':df>0?`John owes Santhosh ${eur(df)}`:`Santhosh owes John ${eur(-df)}`;return{s,j,u,t:s+j,msg}}
+function exportRows(){const t=tally(),r=[['Day','Date','Category','Details','Paid by','Amount EUR']].concat(ex.slice().sort((a,b)=>a.d-b.d).map(e=>[e.d+1,D[e.d].d,e.c,e.n||'',e.p||'',e.a.toFixed(2)]));r.push([],['','','','Santhosh paid','',t.s.toFixed(2)],['','','','John paid','',t.j.toFixed(2)],['','','','Total','',t.t.toFixed(2)],['','','','Each share','',(t.t/2).toFixed(2)],['','','','Settle up','',t.msg]);return r}
+const csvText=()=>exportRows().map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+function expv(){
+ const t=tally();
+ let h=`<h1>💶 Expenses</h1><p class="sub">Split 50/50 between Santhosh and John. ${sharedMode?"Shared trip: see connection status above":"Offline: saved on this device only"}</p><div class="card hero"><div class="sub" style="margin:0">Total spent</div><div class="tot">${eur(t.t)}</div><div class="row"><div>Santhosh paid<br><b>${eur(t.s)}</b></div><div>John paid<br><b>${eur(t.j)}</b></div><div>Each share<br><b>${eur(t.t/2)}</b></div></div><div class="tot" style="font-size:20px;color:var(--bike)">${esc(t.msg)}</div>${t.u?`<div class="w">${eur(t.u)} has no payer chosen and is not counted.</div>`:''}</div>`;
+ h+=fxCard();
+ h+='<h3>Add an expense</h3>'+form(day);
+ const l=ex.map((e,i)=>({e,i})).filter(o=>ef<0||o.e.d===ef);
+ h+=`<h3>Expenses</h3><label class="f">Show<select id="eF"><option value="-1">All days</option>${D.map((z,i)=>`<option value="${i}" ${i===ef?'selected':''}>Day ${i+1}: ${z.d}</option>`).join('')}</select></label>`;
+ h+=l.length?'<div class="card"><table><tr><th>Day</th><th>For</th><th>Paid</th><th class="r">€</th><th></th></tr>'+rows(l)+'</table></div>':'<div class="card sub">No expenses yet.</div>';
+ if(ex.length){const bc={},bd={};ex.forEach(e=>{bc[e.c]=(bc[e.c]||0)+e.a;bd[e.d]=(bd[e.d]||0)+e.a});
+ h+='<h3>By category</h3><div class="card"><table>'+Object.entries(bc).map(([k,v])=>`<tr><td>${esc(k)}</td><td class="r">${eur(v)}</td></tr>`).join('')+'</table></div>';
+ h+='<h3>By day</h3><div class="card"><table>'+Object.entries(bd).map(([k,v])=>`<tr><td>Day ${+k+1}: ${D[k].d}</td><td class="r">${eur(v)}</td></tr>`).join('')+'</table></div>';
+ h+='<h3>Export</h3><button class="btn p" id="eCsv" style="width:100%;margin-top:6px">Save as spreadsheet file (CSV)</button><button class="btn" id="eTsv" style="width:100%;margin-top:8px">Copy for Google Sheets</button><button class="btn" id="eCopy" style="width:100%;margin-top:8px">Copy summary to share</button>'}
+ app.innerHTML=h;
+}
+function info(){
+ const ck=S.get('gr_ik',{});
+ let h='<h1>ℹ️ Important info</h1><p class="sub">Santhosh & Cyril · 9–22 Oct 2026</p>';
+ h+='<div class="card"><b>Flights</b><div class="row"><div class="t">9 Oct</div><div>04:30 Doha → Abu Dhabi<br>06:35 Abu Dhabi → Athens<br>Arrive 12:35</div></div><div class="row"><div class="t">17 Oct</div><div>SKY express GQ352<br>16:30 Athens → Fira, lands 17:25<br>Ref L1C9TA</div></div><div class="row"><div class="t">19 Oct</div><div>Aegean A3359<br>18:40 Fira → Athens, lands 19:30<br>Ref Y943OY</div></div><div class="row"><div class="t">22 Oct</div><div>Etihad EY190<br>13:50 Athens → Abu Dhabi, lands 19:35<br>Etihad EY669<br>20:45 Abu Dhabi → Doha, lands 20:50<br>Ref Z34KJG</div></div></div>';
+ h+='<h3>MotoGreece (bike tour)</h3><div class="card"><div class="row"><div class="t">Ref</div><div>B-2990, 7-day self-guided Peloponnese tour, 10–16 Oct, shared twin room</div></div><div class="row"><div class="t">Where</div><div>85 Astidamantos, 11634 Athens<br><a class="map" target="_blank" rel="noopener" href="'+M('MotoGreece 85 Astidamantos Athens')+'">Maps</a></div></div><div class="row"><div class="t">Call</div><div><a class="map" href="tel:+302107255040">+30 210 7255040</a><br><a class="map" href="mailto:info@motogreece.gr">info@motogreece.gr</a></div></div></div>';
+ h+='<h3>Baggage allowance</h3><div class="card"><div class="row"><div class="t">Etihad</div><div>9 and 22 Oct: 30 kg checked, 8 kg hand luggage</div></div><div class="row"><div class="t">17 Oct</div><div>Athens → Fira: one 25 kg checked bag (Santhosh only), 2 carry-ons (8 kg, 23×40×55 cm), 2 personal items</div></div><div class="row"><div class="t">19 Oct</div><div>Fira → Athens: to confirm</div></div></div>';
+ h+='<h3>Santorini scooter</h3><div class="card"><b>MotoSantorini</b>, confirmed and paid, €37<div class="row"><div class="t">Ref</div><div>1789828474DRH<br>Agility 16+ 125i CBS Kymco or similar</div></div><div class="row"><div class="t">Pick up</div><div>Sun 18 Oct, 10:00, Grand View Megalochori</div></div><div class="row"><div class="t">Drop off</div><div>Mon 19 Oct, 16:00, Grand View Megalochori</div></div></div>';
+ h+='<h3>Santorini hotel</h3><div class="card"><b>Grand View, Megalochori</b><div class="row"><div class="t">Stay</div><div>Check in Sat 17 Oct 15:00–00:00<br>Check out Mon 19 Oct 08:00–11:00<br>Standard double, breakfast included</div></div><div class="row"><div class="t">Where</div><div>Megalochori, Santorini (Thira) 84700<br><a class="map" target="_blank" rel="noopener" href="'+M('Grand View Megalochori Santorini')+'">Maps</a></div></div><div class="row"><div class="t">Call</div><div><a class="map" href="tel:+302286081003">+30 2286 081003</a><br>Pay on arrival: €2 environmental fee per night plus city tax</div></div></div>';
+ h+='<h3>Weather and packing</h3><section id="tripWeather" class="card weather-card" aria-label="Live destination weather"><h2>Live weather</h2><p class="weather-status">Loading weather…</p></section><div class="card sub">Pack T-shirts, a warm layer, a rain jacket and riding gear with a liner. Rain warnings appear here the day before motorcycle and scooter rides, using the date in Greece. Keep the online handbook open to see them; no email or background notifications are sent.</div>';
+ h+='<h3>Where you sleep</h3><div class="card">'+IN.stays.map(s=>`<div class="row"><div class="t">${s[0]}</div><div>${esc(s[1])}</div></div>`).join('')+'</div>';
+   h+='<h3>Still to confirm</h3><div class="card w">Scooter booking: does it cover two scooters? · Baggage allowance on the Fira → Athens flight · Seats on the return flights · Flight numbers for 9 Oct</div>';
+ app.innerHTML=h;
+}
+function geminiFooter(){return '<footer class="card"><h2>Ask Gemini</h2><p class="sub">Ask about places, sights, food or anything else for your trip. Opens in a new tab; handbook details are not shared automatically.</p><a class="btn p" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Chat with Google Gemini (opens in a new tab)">Chat with Google Gemini</a></footer>'}
+function render(k){nav();({days,route,exp:expv,info:()=>{info();app.innerHTML+=moreSecs()+notesSec()}})[view]();app.insertAdjacentHTML('beforeend',geminiFooter());app.insertAdjacentHTML('afterbegin','<div id="weatherAlert" aria-live="polite"></div>');if(window.TripWeather)window.TripWeather.render();if(!k)window.scrollTo(0,0)}
+document.addEventListener('click',async e=>{
+ const t=e.target.closest('button');if(!t)return;
+ if(t.dataset.v){view=t.dataset.v;render()}
+ else if(t.dataset.d!==undefined){day=+t.dataset.d;render()}
+ else if(t.dataset.n){day=Math.max(0,Math.min(D.length-1,day+ +t.dataset.n));render()}
+ else if(t.id==='eCsv'){try{downloadFile('greece-expenses.csv',csvText(),'text/csv;charset=utf-8');t.textContent='Download started'}catch(x){t.textContent='Download unavailable. Use Copy for Google Sheets'}}
+ else if(t.id==='eTsv'){const x=exportRows().map(r=>r.join('\t')).join('\n');try{navigator.clipboard.writeText(x).then(()=>{t.textContent='Copied. Paste into a Google Sheets cell'},()=>{t.textContent='Copy not allowed here'})}catch(e){t.textContent='Copy not allowed here'}}
+ else if(t.id==='shr'){const x=dayText(day);try{if(navigator.share){navigator.share({text:x}).catch(()=>{})}else{navigator.clipboard.writeText(x).then(()=>{t.textContent='Copied'},()=>{t.textContent='Not allowed here'})}}catch(e){t.textContent='Not allowed here'}}
+ else if(t.id==='eAdd'){const a=parseFloat($('#eA').value),p=$('#eP').value;if(!(a>0)||!p){$('#eErr').textContent='Choose who paid and type an amount.';return}const e={n:$('#eN').value.trim(),a,c:$('#eC').value,d:+$('#eD').value,p,t:Date.now()};
+  if(sharedMode){
+   if(expenseSaving)return;
+   if(!SYNC){$('#eErr').textContent='Shared storage is not connected. Reload the online trip and try again.';return}
+   const signature=JSON.stringify(e,(key,value)=>key==='t'?undefined:value);
+   if(t.dataset.pendingDraft!==signature){t.dataset.pendingId=crypto.randomUUID();t.dataset.pendingDraft=signature}
+   e.id=t.dataset.pendingId;expenseSaving=true;t.disabled=true;
+   try{await SYNC.add(e);const details=$('#eN'),amount=$('#eA');if(details)details.value='';if(amount)amount.value='';const button=$('#eAdd');if(button){delete button.dataset.pendingId;delete button.dataset.pendingDraft}if($('#eErr'))$('#eErr').textContent='Saved to shared trip.'}
+   catch(error){if($('#eErr'))$('#eErr').textContent=error.message||'Could not save. Check your connection and try again.'}
+   finally{expenseSaving=false;if($('#eAdd'))$('#eAdd').disabled=false}
+  }else{e.id='l'+Date.now();ex.push(e);S.set('gr_ex',ex);render(1)}}
+ else if(t.id==='eCopy'){const q=tally();const txt=`Greece trip expenses\nSanthosh paid ${eur(q.s)}\nJohn paid ${eur(q.j)}\nTotal ${eur(q.t)}, each share ${eur(q.t/2)}\n${q.msg}\n\n`+ex.map(e=>`${D[e.d].d}: ${e.c}${e.n?' ('+e.n+')':''}, ${e.p||'?'}, ${eur(e.a)}`).join('\n');try{navigator.clipboard.writeText(txt).then(()=>{t.textContent='Copied'},()=>{t.textContent='Copy not allowed here'})}catch(x){t.textContent='Copy not allowed here'}}
+ else if(t.dataset.x!==undefined){const q=ex[+t.dataset.x];if(sharedMode){if(!SYNC)return;t.disabled=true;try{await SYNC.remove(q.id)}catch(error){SYNC.status(error.message||'Could not delete. Try again.');t.disabled=false}}else{ex.splice(+t.dataset.x,1);S.set('gr_ex',ex);render(1)}}
+});
+document.addEventListener('change',e=>{
+ const i=e.target;
+ if(i.id==='eF'){ef=+i.value;render(1);return}
+ if(i.dataset.b){const c=bd();c[i.dataset.b]=i.checked;S.set('gr_bd',c)}
+ if(i.dataset.k){const c=S.get('gr_ck',{});c[i.dataset.k]=i.checked;S.set('gr_ck',c)}
+ if(i.dataset.i){const c=S.get('gr_ik',{});c[i.dataset.i]=i.checked;S.set('gr_ik',c)}
+});
+document.addEventListener('toggle',e=>{const t=e.target;if(t.dataset&&t.dataset.po!==undefined){t.open?PO.add(+t.dataset.po):PO.delete(+t.dataset.po)}},true);
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset&&t.dataset.fx){FX[t.dataset.fx]=t.value;S.set('gr_fx',FX);document.getElementById('fx'+t.dataset.fx).textContent=fxTxt(t.dataset.fx)}if(t.dataset&&t.dataset.n!==undefined)saveNote(+t.dataset.n,t.value)});
+let tx=0,ty=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{if(view!=='days'||e.target.closest('.chips,input,select,table,textarea'))return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>90&&Math.abs(dy)<45){day=Math.max(0,Math.min(D.length-1,day+(dx<0?1:-1)));render()}},{passive:true});
+render();
+document.addEventListener('DOMContentLoaded',()=>{if(window.TripWeather)window.TripWeather.start(()=>({view,day,days:D,places:PL}))});
+if(typeof startTripSync==='function')startTripSync();
+else document.getElementById('syncStatus').textContent=sharedMode?'Shared storage could not load. Reload this page before adding expenses.':'Offline file: open the shared online trip to sync. Expenses here stay on this device.';
+</script></body></html>
